@@ -1,7 +1,6 @@
 var express     = require("express");
 var cors        = require("utils/cors");
-var tsRest      = require("services/tsRest");
-var ircRest     = require("services/ircRest");
+var jobSeekerRest     = require("services/jobSeekerRest");
 
 // App instance
 var app = express();
@@ -13,10 +12,9 @@ app.use(express.json());
 cors(app);
 
 // Setup Rest interfaces
-tsRest(app);
-ircRest(app);
+jobSeekerRest(app);
 
-var server = app.listen(Number(process.env.PORT || 3000), function() {
+var server = app.listen(Number(process.env.PORT || 5757), function() {
   console.log("Listening on port %d", server.address().port);
 });
 
